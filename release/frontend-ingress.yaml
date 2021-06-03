@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: appdemo-ingress
   namespace: appdemo
+  labels:
+    team: boutique-team
 spec:
   rules:
   - host: "boutique.apps.igou.my-openshift-cluster.com"
