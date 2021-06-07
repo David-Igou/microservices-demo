@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: appdemo-ingress
+  namespace: appdemo
+  labels:
+    team: boutique-team
+spec:
+  rules:
+  - host: "boutique.apps.igou.my-openshift-cluster.com"
+    http:
+      paths:
+      - backend:
+          service:
+            name: frontend
+            port: 
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+  tls:
+  - hosts:
+    - boutique.apps.igou.my-openshift-cluster.com
+    secretName: frontend-crt-secret
